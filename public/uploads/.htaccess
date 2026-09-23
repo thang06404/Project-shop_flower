@@ -1,0 +1,6 @@
+# Chặn hoàn toàn việc thực thi script PHP trong thư mục upload để chống RCE
+<FilesMatch "\.(php|phtml|php5|php7|php8|sh|pl|cgi|py)$">
+    Deny from all
+</FilesMatch>
+
+Options -Indexes -ExecCGI

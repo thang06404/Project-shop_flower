@@ -1,0 +1,31 @@
+# Composer dependencies
+/vendor/
+
+# Environment configurations
+.env
+.env.backup
+.env.production
+
+# Uploaded media (giữ lại cấu trúc thư mục, loại trừ files thực tế)
+/public/uploads/products/*
+/public/uploads/categories/*
+!/public/uploads/products/.gitkeep
+!/public/uploads/categories/.gitkeep
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+/storage/logs/*.log
+!/storage/logs/.gitkeep
+
+# AI Agents
+.agents/
+.playwright-mcp/

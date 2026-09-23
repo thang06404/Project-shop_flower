@@ -1,0 +1,274 @@
+:root {
+    --primary-color: #e63946;
+    --primary-hover: #d62828;
+    --secondary-color: #1d3557;
+    --accent-color: #f1faee;
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: #fbfbfb;
+    color: #2b2d42;
+    overflow-x: hidden;
+}
+
+.font-serif {
+    font-family: var(--font-serif);
+}
+
+/* Hero Section Styling */
+.hero-banner {
+    background: linear-gradient(135deg, #fff5f5 0%, #fef8f5 50%, #f7f9fc 100%);
+    position: relative;
+}
+
+.hero-badge {
+    background-color: #ffe3e3;
+    color: #d90429;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    display: inline-block;
+}
+
+/* Product Card Styling */
+.product-card {
+    border: 1px solid #f0f0f0;
+    border-radius: 16px;
+    background: #ffffff;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
+    border-color: #ffd6d6;
+}
+
+.product-img-wrapper {
+    position: relative;
+    padding-top: 100%; /* 1:1 Aspect ratio */
+    overflow: hidden;
+    background-color: #f8f9fa;
+}
+
+.product-img-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.product-card:hover .product-img-wrapper img {
+    transform: scale(1.08);
+}
+
+.sale-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: linear-gradient(45deg, #e63946, #ff4d6d);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 50px;
+    z-index: 2;
+    box-shadow: 0 4px 10px rgba(230, 57, 70, 0.3);
+}
+
+/* Category & Occasion Pill */
+.category-pill {
+    transition: all 0.25s ease;
+    border: 1px solid #eaeaea;
+    background: #ffffff;
+}
+
+.category-pill:hover {
+    background-color: #e63946;
+    color: #ffffff !important;
+    border-color: #e63946;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(230, 57, 70, 0.2);
+}
+
+/* Order Timeline Styling */
+.timeline-track {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin: 40px 0;
+}
+
+.timeline-track::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 5%;
+    right: 5%;
+    height: 4px;
+    background: #e9ecef;
+    z-index: 1;
+}
+
+.timeline-step {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    width: 25%;
+}
+
+.timeline-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #e9ecef;
+    color: #6c757d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    font-weight: bold;
+    border: 3px solid #ffffff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.timeline-step.active .timeline-circle {
+    background: #e63946;
+    color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.2);
+}
+
+.timeline-step.completed .timeline-circle {
+    background: #2a9d8f;
+    color: #ffffff;
+}
+
+/* ---------------------------------------------------
+   Premium UI Polish (Smooth & Modern)
+----------------------------------------------------- */
+
+/* Diffuse Shadows */
+.shadow-sm {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
+}
+
+.shadow {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06) !important;
+}
+
+.shadow-lg {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Softer Cards */
+.card {
+    border: 1px solid rgba(0, 0, 0, 0.04) !important;
+    border-radius: 20px !important;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* Premium Buttons */
+.btn {
+    border-radius: 50px !important;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    transition: all 0.3s ease;
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, var(--primary-color), #ff4d6d);
+    border: none !important;
+}
+
+.btn-danger:hover {
+    background: linear-gradient(135deg, var(--primary-hover), #ff3355);
+    box-shadow: 0 8px 20px rgba(230, 57, 70, 0.25) !important;
+    transform: translateY(-2px);
+}
+
+.btn-outline-dark:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1) !important;
+    transform: translateY(-2px);
+}
+
+/* Better Form Inputs */
+.form-control, .form-select, .input-group-text {
+    border-radius: 12px;
+    border: 1px solid #eaeaea;
+    background-color: #fcfcfc;
+    transition: all 0.3s ease;
+}
+
+/* Fix Input Group Buttons & Spinners */
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.input-group > .btn, 
+.input-group > .form-control {
+    border-radius: 0 !important;
+    margin: 0 !important;
+}
+.input-group > .btn:first-of-type {
+    border-top-left-radius: 50px !important;
+    border-bottom-left-radius: 50px !important;
+}
+.input-group > .btn:last-of-type {
+    border-top-right-radius: 50px !important;
+    border-bottom-right-radius: 50px !important;
+}
+
+.form-control:focus, .form-select:focus {
+    background-color: #ffffff;
+    border-color: #ff9a9e;
+    box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.1) !important;
+}
+
+/* Glassmorphism Navbar */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Smooth Links */
+a {
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+/* Smooth Hover Lift */
+.hover-lift {
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+}
+.hover-lift:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Page Micro-Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+main {
+    animation: fadeIn 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+

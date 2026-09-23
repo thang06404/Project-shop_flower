@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Chặn truy cập trực tiếp các file ẩn
+    RewriteRule "(^|/)\.(?!well-known)" - [F]
+
+    # Nếu không phải là file thực tế hoặc thư mục thực tế -> Rewrite về index.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>

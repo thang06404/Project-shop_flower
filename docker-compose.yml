@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  app:
+    image: php:8.5-apache
+    container_name: shop_flower_app
+    restart: unless-stopped
+    ports:
+      - "8000:80"
+    volumes:
+      - .:/var/www/html
+    environment:
+      - APACHE_DOCUMENT_ROOT=/var/www/html/public
+    command: >
+      bash -c "
+        sed -ri -e 's!/var/www/html!$${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf &&
+        sed -ri -e 's!/var/www/!$${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf &&
+        a2enmod rewrite &&
+        docker-php-ext-install pdo pdo_mysql &&
+        apt-get update && apt-get install -y libpq-dev && docker-php-ext-install pdo_pgsql &&
+        apache2-foreground
+      "
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: shop_flower_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: shop_flower
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./database/migrations.sql:/docker-entrypoint-initdb.d/1_migrations.sql
+      - ./database/seeders.sql:/docker-entrypoint-initdb.d/2_seeders.sql
+
+volumes:
+  pgdata:

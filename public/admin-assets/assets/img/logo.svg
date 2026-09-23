@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <!-- Define soft, subtle Gradient colors -->
+    <linearGradient id="petalGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff9a9e" />
+      <stop offset="100%" stop-color="#fecfef" />
+    </linearGradient>
+    <linearGradient id="petalGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff758c" />
+      <stop offset="100%" stop-color="#ff7eb3" />
+    </linearGradient>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#softShadow)" transform="translate(50, 50)">
+    <!-- Back petal layer (Rotate 45 degrees) -->
+    <g transform="rotate(45)">
+      <ellipse cx="0" cy="-22" rx="10" ry="20" fill="url(#petalGrad1)" opacity="0.9"/>
+      <ellipse cx="0" cy="22" rx="10" ry="20" fill="url(#petalGrad1)" opacity="0.9"/>
+      <ellipse cx="-22" cy="0" rx="20" ry="10" fill="url(#petalGrad1)" opacity="0.9"/>
+      <ellipse cx="22" cy="0" rx="20" ry="10" fill="url(#petalGrad1)" opacity="0.9"/>
+    </g>
+
+    <!-- Front petal layer (Direct view) -->
+    <g>
+      <ellipse cx="0" cy="-24" rx="11" ry="22" fill="url(#petalGrad2)"/>
+      <ellipse cx="0" cy="24" rx="11" ry="22" fill="url(#petalGrad2)"/>
+      <ellipse cx="-24" cy="0" rx="22" ry="11" fill="url(#petalGrad2)"/>
+      <ellipse cx="24" cy="0" rx="22" ry="11" fill="url(#petalGrad2)"/>
+    </g>
+
+    <!-- Center stamen (Multi-layer highlight) -->
+    <circle cx="0" cy="0" r="10" fill="#ffffff"/>
+    <circle cx="0" cy="0" r="6" fill="#ffb199"/>
+    <circle cx="0" cy="0" r="3" fill="#ffffff"/>
+  </g>
+</svg>
